@@ -1,0 +1,44 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: initial;
+}
+
+#heading {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 500;
+    color: #6b6f75;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.form-group {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 5px;
+}
+
+.form-group label {
+    margin-left: 12px;
+    color: #6b6f75;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#description-area {
+    color: #6b6f75;
+    border: 0 solid transparent;
+    box-shadow: none!important;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#description-area::placeholder {
+    color: #d9d9dc;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
