@@ -1,5 +1,16 @@
+//require express
 const express = require('express');
+
+//port on which server will run
 const port = 8000;
+
+//require database 
+const db = require('./config/mongoose');
+
+//require schema
+const Task = require('./models/task');
+
+//creating express app
 const app = express();
 
 
@@ -7,14 +18,30 @@ const app = express();
 app.set('view engine','ejs');
 app.set('views','./views');
 
+//middleware for form
+app.use(express.urlencoded());
 
 //using assets folder for css and js
 app.use(express.static('assets'));
 
-
 //use express router
 app.use('/',require('./routes/index.js'));
 
+//sending request and populating database
+app.post('/create-task',function(req,res) {
+    Task.create({
+        task: req.body.task,
+        category: req.body.category,
+        date: req.body.date
+    }, function(err, newTask) {
+        if(err) {
+            console.log('Error in creating a task!');
+            return;
+        }
+        console.log('*******', newTask);
+        return res.redirect('back');
+    })
+})
 
 //server check
 app.listen(port, function(err) {

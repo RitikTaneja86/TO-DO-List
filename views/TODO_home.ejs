@@ -1,23 +1,85 @@
 <html>
-    <head>
-        <title><%= title %></title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="css/TODO_home.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <h1 id="heading"><%= title %></h1>
-            
-        <form id="list-form" action="" method="POST">
 
-            <div class="form-group">
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link href="css/TODO_home.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 id="heading"><%= title %></h1>
+
+        <form id="list-form" action="/create-task" method="POST">
+
+            <div class="form-group row">
                 <label for="description-area">DESCRIPTION</label>
-                <input type="text" class="form-control" id="description-area" placeholder="What do you need to do?" required>
+                <input type="text" name="task" class="form-control" id="description-area" placeholder="What do you need to do?"
+                    required>
+            </div>
+
+            <div class="row category-date-container">
+
+                <div class="category col-sm-6">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group">
+                            <p class="input-group category-date-heading">CATEGORY</p>
+                        </div>
+                        <select name="category" class="custom-select category-dropdown">
+                            <option selected>Choose a Category</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="school">School</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="date col-sm-6">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group">
+                            <p class="input-group category-date-heading">DUE DATE</p>
+                            <input type="text" name="date" id="datepicker" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button type="submit" class="btn btn-dark btn-lg add-btn"><i class="fas fa-plus"></i> ADD TASK</button>
+                <button type="button" class="btn btn-danger btn-lg delete-btn"><i class="far fa-trash-alt"></i> DELETE
+                    TASKS</button>
+
             </div>
 
         </form>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="js/TODO_home.js" type="text/javascript"></script>
+</body>
+
 </html>
