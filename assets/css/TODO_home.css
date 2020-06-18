@@ -18,6 +18,7 @@ body {
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     padding: 5px;
+    margin-bottom: 0;
 }
 
 .form-group label {
@@ -41,4 +42,69 @@ body {
     color: #d9d9dc;
     font-weight: 500;
     font-size: 1.2rem;
+}
+
+.category-date-container {
+    border-bottom: 1px solid grey;
+}
+
+.category {
+    border-right: 1px solid grey;
+}
+
+.category-date-heading {
+    color: #6b6f75;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 3px;
+    margin-bottom: 0;
+    padding-top: 5px;
+}
+
+.category-dropdown {
+    color: #6b6f75;
+    border: none;
+    font-weight: 500;
+    box-shadow: none!important;
+    cursor: pointer;
+    padding: 0;
+}
+
+.custom-select {
+    background-image: none;
+    -webkit-appearance: auto;
+}
+
+#datepicker {
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.ui-datepicker {
+    margin-top: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+
+.buttons button {
+    max-width: 190px; 
+    font-weight: 100;
+    margin: 25px 5px;
+    padding: 15px 0;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons button i {
+    padding-top: 4px;
+}
+
+.add-btn, .delete-btn {
+    width: 190px;
 }
