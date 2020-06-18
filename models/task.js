@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 //creating new mongoose schema
 const taskSchema = new mongoose.Schema({
     task: {
-        type: String,
-        required: true
+    type: String,
+    required: true
     },
     category: {
         type: String
