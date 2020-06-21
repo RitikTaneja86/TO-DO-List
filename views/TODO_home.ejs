@@ -1,19 +1,25 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+
     <title><%= title %></title>
+
+
+    <!-- All CSS Links -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link href="http://code.jquery.com/ui/1.10.4/themes/vader/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
     <link href="css/TODO_home.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <div class="container">
 
-        <h1 id="heading"><%= title %></h1>
+        <h1 id="heading"><i class="fas fa-tasks"></i><%= title %></h1>
 
         <form id="list-form" action="/create-task" method="POST">
 
@@ -33,11 +39,11 @@
                         </div>
                         <select name="category" class="custom-select category-dropdown">
                             <option selected>Choose a Category</option>
-                            <option value="personal">Personal</option>
-                            <option value="work">Work</option>
-                            <option value="school">School</option>
-                            <option value="cleaning">Cleaning</option>
-                            <option value="other">Other</option>
+                            <option value="PERSONAL">Personal</option>
+                            <option value="WORK">Work</option>
+                            <option value="SCHOOL">School</option>
+                            <option value="CLEANING">Cleaning</option>
+                            <option value="OTHER">Other</option>
                         </select>
                     </div>
 
@@ -59,14 +65,50 @@
             <div class="buttons">
 
                 <button type="submit" class="btn btn-dark btn-lg add-btn"><i class="fas fa-plus"></i> ADD TASK</button>
-                <button type="button" class="btn btn-danger btn-lg delete-btn"><i class="far fa-trash-alt"></i> DELETE
-                    TASKS</button>
+                <a href="" id="remove-task"><button type="button" class="btn btn-danger btn-lg delete-btn"><i class="far fa-trash-alt"></i> DELETE
+                    TASKS</button></a>
 
             </div>
 
         </form>
 
+        <!-- Months array -->
+        <% var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"] %>
+
+        <% for(let i of task_list) { %>
+            <div class="input-group mb-3 display-task-details">
+                <div class="input-group-prepend">
+                    <div class="input-group-text checkbox-background">
+                        <a href="/delete-task/?id=<%= i.id %>" class="deletion"><input type="checkbox" name="checkbox" class="check"></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title display-task w-75"><%= i.task %></h5>
+                    <% if(i.category != "Choose a Category") { %>
+                        <div class="display-category text-center <%= i.category %>">
+                            <%= i.category %>
+                        </div>
+                    <% } %> 
+
+                    <!-- For printing date in   Month-Name Date, Year   format  -->
+                    <% var date =  i.date.substring(3,6) + i.date.substring(0,3)+ i.date.substring(6,10) %>
+                    <% var display_date = new Date(date) %>
+                    <% var day = display_date.getDate() %>
+                    <% var month = display_date.getMonth() %>
+                    <% var year = display_date.getFullYear() %>
+                    <% var final_date = months[month] + ' ' + day + ', ' + year %>
+
+                    <% if(i.date == "") { %>
+                        <p class="card-text display-date"><i class="far fa-calendar-alt"></i>NO DEADLINE</p>
+                    <% } else { %>
+                        <p class="card-text display-date"><i class="far fa-calendar-alt"></i><%= final_date %></p>
+                    <% } %>        
+                </div>
+            </div>
+        <% } %>
     </div>
+
+    <!-- All Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>

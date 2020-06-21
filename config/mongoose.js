@@ -8,9 +8,9 @@ mongoose.connect('mongodb://localhost/task_list_db');
 const db = mongoose.connection;
 
 //error handling
-db.on('error', console.error.bind(console,'error connecting to db'));
+db.on('error', console.error.bind(console, 'error connecting to db'));
 
 //once database is opened
-db.once('open', function() {
+db.once('open', function () {
     console.log('Successfully Connected to the Database');
 })

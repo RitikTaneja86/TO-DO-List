@@ -8,12 +8,11 @@ const router = express.Router();
 const todoHomeController = require('../controller/TODO_home');
 
 
-// console.log("router loaded");
+// console.log("router loaded"); ,just for checking if router is loaded or not
 
 
 //accessing controller function
-router.get('/',todoHomeController.todo);
+router.get('/', todoHomeController.todo);
 
 //exporting router
 module.exports = router;
-

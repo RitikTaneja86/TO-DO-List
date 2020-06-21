@@ -2,20 +2,35 @@ body {
     padding: 0;
     margin: 0;
     font-family: initial;
+    animation: fadeInDown;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
 }
 
 #heading {
     text-align: center;
     margin-top: 30px;
+    margin-bottom: 30px;
     font-weight: 500;
     color: #6b6f75;
     letter-spacing: 2px;
     word-spacing: 3px;
     text-transform: uppercase;
+    box-shadow: 3px 3px 3px 3px darkgrey;
+}
+
+#heading:hover {
+    background-color: #eaedf0;
+    box-shadow: 3px 3px 3px 3px black;
+}
+
+#heading i {
+    padding-right: 10px;
+    font-size: 2.1rem;
 }
 
 .form-group {
-    border-top: 1px solid grey;
+    /* border-top: 1px solid grey; */
     border-bottom: 1px solid grey;
     padding: 5px;
     margin-bottom: 0;
@@ -31,7 +46,7 @@ body {
 #description-area {
     color: #6b6f75;
     border: 0 solid transparent;
-    box-shadow: none!important;
+    box-shadow: none !important;
     margin-top: -15px;
     margin-bottom: 10px;
     font-weight: 500;
@@ -65,7 +80,7 @@ body {
     color: #6b6f75;
     border: none;
     font-weight: 500;
-    box-shadow: none!important;
+    box-shadow: none !important;
     cursor: pointer;
     padding: 0;
 }
@@ -88,11 +103,10 @@ body {
 .buttons {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid grey;
 }
 
 .buttons button {
-    max-width: 190px; 
+    max-width: 190px;
     font-weight: 100;
     margin: 25px 5px;
     padding: 15px 0;
@@ -101,10 +115,137 @@ body {
     justify-content: space-evenly;
 }
 
+.buttons button:hover {
+    box-shadow: 2px 2px 3px 3px darkgrey;
+}
+
 .buttons button i {
     padding-top: 4px;
 }
 
-.add-btn, .delete-btn {
+.add-btn,
+.delete-btn {
     width: 190px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.display-task-details {
+    border-top: 1px solid grey;
+}
+
+.checkbox-background {
+    background-color: white;
+    border: none;
+}
+
+.checkbox-background input {
+    cursor: pointer;
+    height: 20px;
+    width: 17px;
+}
+
+.display-task {
+    margin-bottom: 6px;
+    color: #6b6f75;
+    font-weight: 600;
+}
+
+.display-category {
+    float: right;
+    display: block;
+    margin-top: -25px;
+    padding: 6px;
+    color: white;
+    min-width: 94.69px;
+    min-height: 36px;
+}
+
+.display-date i {
+    padding-right: 7px;
+}
+
+.display-date {
+    color: #9aacb1;
+}
+
+.display-task,
+.display-date {
+    letter-spacing: 1.5px;
+    word-spacing: 1.5px;
+}
+
+.WORK {
+    background-color: #9c00af;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
+.WORK:hover {
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.SCHOOL {
+    background-color: #f2a700;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
+.SCHOOL:hover {
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.PERSONAL {
+    background-color: #3c6cb8;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
+.PERSONAL:hover {
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.CLEANING {
+    background-color: teal;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
+.CLEANING:hover {
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.OTHER {
+    background-color: mediumvioletred;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
+
+.OTHER:hover {
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+@media screen and (max-width:575px) {
+    .category {
+        border: none;
+        border-bottom: 1px solid grey;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: darkgrey; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: lightgrey;
 }

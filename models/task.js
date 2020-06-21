@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 //creating new mongoose schema
 const taskSchema = new mongoose.Schema({
     task: {
-    type: String,
-    required: true
+        type: String,
+        required: true //as task is required
     },
     category: {
         type: String
@@ -17,4 +17,4 @@ const taskSchema = new mongoose.Schema({
 
 //creating and exporting model
 const Task = mongoose.model('task', taskSchema);
-module.exports = Task
+module.exports = Task;
